@@ -37,4 +37,21 @@ public abstract class Polygone extends Forme{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public String toString() {
+       String s = getClassName() +" :\n"
+               + "Liste des points : ";
+        for(Point p : this.points()) {
+            s += p.toString()+" ";
+        }
+       
+       s +=  "Aire = " + this.aire()
+            + "Perimètre =" + this.perimetre() + "\n"
+            + "Rotation = " + this.getAlpha() + "\n"
+            + "Longueur =" + this.getL() + "\n";
+       
+       return s;
+    }
+    protected abstract String getClassName();
+
 }
