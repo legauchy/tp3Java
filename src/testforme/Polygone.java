@@ -14,27 +14,40 @@ import java.util.ArrayList;
 public abstract class Polygone extends Forme{
     
     protected double alpha;
+    protected double angleA;
     protected double L;
 
-    public Polygone(Point p, double alpha, double L) {
+    public Polygone(Point p, double alpha, double L, double angleA) {
         super(p);
         this.L = L;
+        this.angleA = angleA;
         this.alpha = alpha;
     }
     
     public abstract ArrayList<Point> points();
-
-    public double getAlpha() {
-        return alpha;
-    }
-
-    public double getL() {
-        return L;
-    }
     
     @Override
     public double perimetre() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public String toString() {
+       String s = getClassName() +" :\n"
+               + "Liste des points : ";
+        for(Point p : this.points()) {
+            s += p.toString()+" ";
+        }
+       
+       s +=  "Aire = " + this.aire()
+            + "Perimètre =" + this.perimetre() + "\n"
+            + "Rotation = " + this.alpha+ "\n"
+            + "Angle A = " + this.angleA + "\n"
+            + "Longueur =" + this.L+ "\n";
+       
+       return s;
+    }
+    
+    protected abstract String getClassName();
+
 }

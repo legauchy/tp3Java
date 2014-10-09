@@ -13,12 +13,15 @@ import java.util.ArrayList;
  */
 public class Parallelogramme extends Polygone{
 
-    protected double A;
     protected double l;
 
+    public Parallelogramme(double x, double y, double alpha, double L, double A, double l) {
+        super(new Point(x, y), alpha, L,  A);
+        this.l = l;
+    }
+    
     public Parallelogramme(Point p, double alpha, double L, double A, double l) {
-        super(p, alpha, L);
-        this.A = A;
+        super(p, alpha, L,  A);
         this.l = l;
     }
 
@@ -33,13 +36,15 @@ public class Parallelogramme extends Polygone{
     }
 
     @Override
-    public double perimetre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return super.toString()
+                + "Largeur = " + this.l;
+                
+    }
+    
+    @Override
+    protected String getClassName() {
+        return "Polygone";
     }
     
     public boolean estLosange() {
