@@ -1,22 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package testforme;
 
 /**
  *
- * @author goum
+ * @author Henry Lefevre - Anthony Gauchy
  */
 public class TriangleEquilaterale extends TriangleIsocele{
-
+    
+    public TriangleEquilaterale(Point p, double alpha, double L) {
+        super(p, alpha, L, Math.PI/3);
+    }
+    
     public TriangleEquilaterale(double x, double y, double alpha, double L) {
-        super(x, y, alpha, L, 60);
+        this(new Point(x, y), alpha, L);
     }
 
-    public TriangleEquilaterale(Point p, double alpha, double L) {
-        super(p, alpha, L, 60);
+    @Override
+    public boolean estEquilaterale() {
+        return true;
     }
 
     @Override

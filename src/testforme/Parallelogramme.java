@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package testforme;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Goum
+ * @author Henry Lefevre - Anthony Gauchy
  */
 public class Parallelogramme extends Polygone{
 
@@ -26,13 +21,30 @@ public class Parallelogramme extends Polygone{
     }
 
     @Override
-    public ArrayList<Point> points() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public final ArrayList<Point> points() {
+        double px = this.p.getX();
+        double py = this.p.getY();
+        double x, y;
+        ArrayList<Point> arrayPoints = new ArrayList<>();
+        arrayPoints.add(p);
+        x = Utility.round(px + L * Math.cos(alpha));
+        y = Utility.round(py + L * Math.sin(alpha));
+        arrayPoints.add(new Point(x, y));
+        System.out.println("test : " + angleA / Math.PI * 180.0);
+        System.out.println("angleA : " + angleA);
+        x = Utility.round(x + l * Math.cos(alpha + angleA));
+        y = Utility.round(y + l * Math.sin(alpha + angleA));
+        arrayPoints.add(new Point(x, y));
+        x = Utility.round(px + l * Math.cos(alpha + angleA));
+        y = Utility.round(py + l * Math.sin(alpha + angleA));
+        arrayPoints.add(new Point(x, y));
+        
+        return arrayPoints;
     }
 
     @Override
     public double aire() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Utility.round((l * Math.sin(angleA)) * L);
     }
 
     @Override
@@ -48,14 +60,14 @@ public class Parallelogramme extends Polygone{
     }
     
     public boolean estLosange() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.L == this.l;
     }
     
     public boolean estRectangle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.angleA == Math.PI/2;
     }
     
     public boolean estCarre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.estLosange() && this.estRectangle();
     }
 }
