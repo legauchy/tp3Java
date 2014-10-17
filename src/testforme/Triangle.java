@@ -53,7 +53,7 @@ public class Triangle extends Polygone{
     @Override
     public String toString() {
         return super.toString()
-                + "Angle B = " + this.angleB;
+                + "Angle B = " + Utility.round((this.angleB / Math.PI) * 180.0) + " degré";
                 
     }
     

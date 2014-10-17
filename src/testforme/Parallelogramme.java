@@ -30,8 +30,6 @@ public class Parallelogramme extends Polygone{
         x = Utility.round(px + L * Math.cos(alpha));
         y = Utility.round(py + L * Math.sin(alpha));
         arrayPoints.add(new Point(x, y));
-        System.out.println("test : " + angleA / Math.PI * 180.0);
-        System.out.println("angleA : " + angleA);
         x = Utility.round(x + l * Math.cos(alpha + angleA));
         y = Utility.round(y + l * Math.sin(alpha + angleA));
         arrayPoints.add(new Point(x, y));
@@ -56,7 +54,7 @@ public class Parallelogramme extends Polygone{
     
     @Override
     protected String getClassName() {
-        return "Polygone";
+        return "Parallelogramme";
     }
     
     public boolean estLosange() {

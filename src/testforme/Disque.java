@@ -26,11 +26,11 @@ public class Disque extends Forme {
     }
     
     public double aire() {
-     return Math.PI * Math.pow(getRayon(), 2);   
+     return Utility.round(Math.PI * Math.pow(getRayon(), 2));
     }
     
     public double perimetre() {
-        return 2 * Math.PI * getRayon();
+        return Utility.round(2 * Math.PI * getRayon());
     }
     
     public boolean estDansDisque(Point p) {
@@ -42,6 +42,10 @@ public class Disque extends Forme {
     }
     
     public String toString() {
-        return "Disque de centre " + this.p.toString() + ", de rayon " + getRayon();
+        
+       String s = "Disque de centre " + this.p.toString() + ", de rayon " + getRayon();
+       s +=  "\nAire = " + this.aire() + "\n"
+            + "Perimètre = " + this.perimetre() + "\n";       
+       return s;
     }
 }

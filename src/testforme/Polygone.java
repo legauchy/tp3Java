@@ -42,9 +42,9 @@ public abstract class Polygone extends Forme{
         }
        
        s +=  "\nAire = " + this.aire() + "\n"
-            + "Perimètre =" + this.perimetre() + "\n"
-            + "Rotation = " + this.alpha + "\n"
-            + "Angle A = " + this.angleA + "\n"
+            + "Perimètre = " + this.perimetre() + "\n"
+            + "Rotation alpha = " + Utility.round((this.alpha / Math.PI) * 180.0) + " degré" + "\n"
+            + "Angle A = " + Utility.round((this.angleA / Math.PI) * 180.0) + " degré" + "\n"
             + "Longueur = " + this.L + "\n";
        
        return s;
